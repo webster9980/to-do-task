@@ -12,4 +12,10 @@ export const ButtonTask = styled('button', {
     gap: '0.5rem',
     fontSize: '0.875rem',
     fontWeight: '700',
+    cursor: 'pointer',
+    transition: 'background 0.2s',
+
+    '&:hover': {
+        background: '$Blue',
+    }
 })

@@ -22,10 +22,13 @@ export const { styled, css, globalCss } = createStitches({
 
 export const globalStyles = globalCss({
   '*': {
-  'margin': 0,
-  'padding': 0,
-  'text-decoration': 'none',
-  'boxSizing': 'border-box',
+    'margin': 0,
+    'padding': 0,
+    'text-decoration': 'none',
+    'boxSizing': 'border-box',
+  },
+  'body': {
+    'fontFamily': 'Inter, sans-serif',
   }
 })
   
