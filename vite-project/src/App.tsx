@@ -65,7 +65,7 @@ function App() {
           <ConcludedTask>Concluídas: <Span>{0}</Span></ConcludedTask>
         </HeaderContent>
         <Main>
-          {task && task.map((task: TaskProps) => {
+          {task.length > 0 ? task.map((task: TaskProps) => {
               return (
                 <CardTask 
                   key={task.id}
@@ -74,7 +74,7 @@ function App() {
                   isComplete={false} 
                 />
               );
-            }) 
+            }) : <EmptyCard /> 
           }
 
         </Main>

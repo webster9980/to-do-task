@@ -82,7 +82,8 @@ export const InputTask = styled('input', {
     },
 
     '&:focus': {
-        border: '2px solid',
-        borderColor: '#5E60CE'
+        border: '1px solid #5E60CE',
+        boxShadow: '0 0 0 0',
+        outline: 0
     }   
 });

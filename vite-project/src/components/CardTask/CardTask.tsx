@@ -1,22 +1,24 @@
-import { Check, Trash } from "phosphor-react";
-import { ButtonContainer, CardContainer, CheckboxIndicator, CheckboxRoot } from "./styles";
+import { Trash } from "phosphor-react";
+import { ButtonContainer, CardContainer, CheckboxIndicator, CheckboxRoot, P } from "./styles";
 
 import { TaskProps } from '../../App'
 
-export function CardTask({content}: TaskProps){
+import { CheckIcon } from '@radix-ui/react-icons'
+
+export function CardTask({content, isComplete}: TaskProps){
 
     return(
         <CardContainer>
             <CheckboxRoot>
                 <CheckboxIndicator>
-                    <Check size={22} weight="duotone"  />
+                    <CheckIcon />
                 </CheckboxIndicator>
             </CheckboxRoot>
-            <p>
+            <P>
                 {content}
-            </p>
+            </P>
             <ButtonContainer role='button'>
-                <Trash size={24} />
+                <Trash size={20} />
             </ButtonContainer>
         </CardContainer>
     );
