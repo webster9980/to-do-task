@@ -9,10 +9,11 @@ import { CardTask } from "./components/CardTask"
 import { EmptyCard } from "./components/EmptyCard"
 
 
-export interface TaskProps {
+interface TaskProps {
     id: number,
     content: string,
     isComplete: boolean,
+    onDelete?: (taskToDelete: number) => void,
 }
 
 function App() {
@@ -21,9 +22,15 @@ function App() {
 
   const [ valueInput, setValueInput ] = useState('')
 
+  function handleDeleteTask(taskToDelete: number) {
+    const tasksWhithoutDeleteOne = task.filter(task => {
+      return task.id != taskToDelete
+    })
+    setTask(tasksWhithoutDeleteOne)
+  }
+
   function handleCreateTask(event: FormEvent){
     event.preventDefault();
-    console.log('chamou')
     if(task){
       setTask((state) => {
         return (
@@ -43,6 +50,18 @@ function App() {
     }
     setValueInput('')
   }
+
+  function handleUpdateStatusTask(taskToUpdate: number){
+    const UpdatedTask = task.filter(task => {
+      if(task.id === taskToUpdate){
+        task.isComplete = !task.isComplete
+      }
+      return task
+    })
+    setTask(UpdatedTask)
+    console.log(task)
+  }
+
   globalStyles();
 
   return (
@@ -62,7 +81,7 @@ function App() {
       <ContentContainer>
         <HeaderContent>
           <TaskCreated>Tarefas criadas: <Span>{task.length}</Span></TaskCreated>
-          <ConcludedTask>Concluídas: <Span>{0}</Span></ConcludedTask>
+          <ConcludedTask>Concluídas: <Span>{task.filter(task => task.isComplete === true).length}</Span></ConcludedTask>
         </HeaderContent>
         <Main>
           {task.length > 0 ? task.map((task: TaskProps) => {
@@ -71,12 +90,13 @@ function App() {
                   key={task.id}
                   content={task.content} 
                   id={task.id} 
-                  isComplete={false} 
+                  isComplete={task.isComplete} 
+                  onDelete={handleDeleteTask}
+                  onUpdate={handleUpdateStatusTask}
                 />
               );
             }) : <EmptyCard /> 
           }
-
         </Main>
       </ContentContainer>
     </>  

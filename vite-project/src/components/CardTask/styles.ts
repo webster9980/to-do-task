@@ -19,6 +19,15 @@ export const P = styled('p', {
         fontWeight: '400',
         fontSize: '0.875rem',
         lineHeight: '1.25rem',
+
+        variants: {
+            isComplete: {
+                true: {
+                    textDecoration: 'line-through',
+                    color: '$gray300'
+                }
+            }
+        }
 });
 
 export const CheckboxRoot = styled(Checkbox.Root, {

@@ -19,6 +19,7 @@ export const HeaderContainer = styled('header', {
 export const ContentContainer = styled('main', {
     background: '$gray600',
     height: 'calc(100vh - 200px)',
+    overflowY: 'auto',
 });
 
 export const HeaderContent = styled('header', {
@@ -58,6 +59,7 @@ export const Main = styled('main', {
     margin: '24px auto',
     borderTop: '1px solid $gray400',
     paddingTop: '64px',
+    overflowY: 'auto',
 
     display: 'flex',
     flexDirection: 'column',

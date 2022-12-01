@@ -18,4 +18,4 @@ export const ButtonTask = styled('button', {
     '&:hover': {
         background: '$Blue',
     }
-})
+});
